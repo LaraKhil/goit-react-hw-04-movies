@@ -1,6 +1,6 @@
 import axios from "axios";
 import { NavLink, useHistory, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MovieCard from "../../shared/styles/MovieCard";
 import s from './MovieSearchStyles.module.css';
 import imageNotFound from '../../Images/no-image.png';
@@ -8,12 +8,26 @@ import imageNotFound from '../../Images/no-image.png';
 export default function MoviesSearch() {
     const [inputValue, setInputValue] = useState('');
     const [movies, setMovies] = useState([]);
+    const [query, setQuery] = useState('');
+
 
     const history = useHistory();
     const location = useLocation();
 
 
+    useEffect(() => {
+        location.search && axios
+            .get(`https://api.themoviedb.org/3/search/movie${location.search}&api_key=217783f9674e62b18b0d5c10d6ab29e5`)
+            .then(item => {
+                setMovies(item.data.results);
+                setInputValue('')
+            }
+            );
+    }, [location])
+
+
     const handleSubmit = (e) => {
+
         e.preventDefault();
         const query = inputValue.toLowerCase();
         history.push({

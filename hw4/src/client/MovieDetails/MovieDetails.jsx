@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react";
+import { lazy, Suspense } from 'react';
 import { useRouteMatch, useParams, Route, Switch, useHistory, useLocation } from "react-router";
 import { NavLink } from "react-router-dom";
-import MovieCast from "../MovieCast";
 import axiosRequest from "../../services/api";
-import ReviewsList from "../ReviewsList";
+
 import s from './MovieDetailsStyles.module.css'
 
 import imgNotFound from '../../Images/no-image.png';
 
 export default function MovieDetailsPage() {
+
+    const MovieCast = lazy(() => import('../MovieCast'));
+    const ReviewsList = lazy(() => import('../ReviewsList'));
+
 
     const { url } = useRouteMatch();
     const { movieId } = useParams();
@@ -25,6 +29,7 @@ export default function MovieDetailsPage() {
                 setGenres(book.data.genres);
             });
     }, []);
+
 
     const onGoBackClick = () => {
         history.push(location.state?.from);
@@ -82,15 +87,13 @@ export default function MovieDetailsPage() {
 
                     </div>
                 </>
-            }
+            };
 
             <Switch>
-                <Route exact path='/movies/:movieId/cast'>
-                    <MovieCast />
-                </Route>
-                <Route exact path='/movies/:movieId/reviews'>
-                    <ReviewsList />
-                </Route>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Route exact path='/movies/:movieId/cast' component={MovieCast} />
+                    <Route exact path='/movies/:movieId/reviews' component={ReviewsList} />
+                </Suspense>
             </Switch>
 
         </section>
