@@ -1,0 +1,52 @@
+.profileSection{
+    padding: 0 20px 20px 20px;
+}
+.profileImagesList{
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    margin-right: -20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    padding-top: 40px;
+}
+
+.profileItem{
+    position: relative;
+    background: #780206;  /* fallback for old browsers */  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #061161, #780206);
+    margin-right: 20px;
+    margin-bottom: 20px;
+    flex-basis: calc(100% /14);
+}
+
+.profileImagesContainer{
+    width: auto;
+    height: auto;
+}
+
+.profileImg{
+    width: 100%;
+    display: block;
+    -o-object-fit: cover;
+       object-fit: cover;
+    
+    -o-object-position:  center;
+       object-position:  center;
+}
+
+.profileTitle{
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.438);
+    margin: 0;
+    padding: 10px 0;
+    line-clamp: 1;
+    display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: horizontal;
+        overflow: scroll;
+}

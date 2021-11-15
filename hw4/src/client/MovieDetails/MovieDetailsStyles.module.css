@@ -1,0 +1,130 @@
+.movieCard {
+  font: 14px/22px "Lato", Arial, sans-serif;
+  color: #A9A8A3;
+  padding: 40px 0 0 0;
+  position: relative;
+}
+
+.container {
+  margin: 0 auto;
+  width: 240px;
+  height: 360px;
+  top: 30px;
+  left: 20px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 100;
+  background: #780206; 
+}
+
+.container img{
+    width: 240px;
+}
+
+.hero {
+  height: 342px;  
+  margin:0;
+  position: relative;
+  overflow: hidden;
+  z-index:1;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+    
+}
+
+.hero:before {
+  content:'';
+  width:100%; height:100%;
+  position:absolute;
+  overflow: hidden;
+  top:0; left:0;
+  background: #780206;  /* fallback for old browsers */  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #061161, #780206); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  z-index:-1;
+ 
+  transform: skewY(-2.2deg);
+  transform-origin:0 0;
+  
+  -webkit-backface-visibility: hidden; 
+  
+}
+
+.cover {
+  position: absolute;
+  top: 160px;
+  left: 40px;
+  z-index: 2;
+}
+
+.details {
+  padding: 120px 0 0 280px;
+}
+
+.title1 {
+  color: white;
+  font-size: 35px;
+  line-height: 1.2;
+  max-width: 90%;
+  margin-bottom: 13px;
+  position: relative;
+}
+
+.description {
+  /* bottom: 0px; */
+  display: flex;
+  padding-top: 20px;
+  
+  font-size: 16px;
+  line-height: 26px;
+  color: #0e0d0d;
+}
+
+.column1 {
+  padding-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+}
+
+.tag {
+  background: rgb(156, 155, 155);
+  border-radius: 10px;
+  padding: 3px 8px;
+  font-size: 14px;
+  margin-right: 4px;
+  line-height: 20px;
+  margin-bottom: 0;
+}
+
+.column2 {
+  padding-left: 41px;
+  width: 480px;
+  float: left;
+}
+
+.navLink{
+    text-decoration: none;
+    color: #0000;
+}
+
+.navLinkActive{
+    color: #061161;
+}
+
+.goBackBtn{
+  margin: 10px 0 0 20px;
+  padding: 5px 6px;
+  background-color: #780206;
+  border: 3px solid #780206;
+  border-radius: 50%;
+  color: #fff;
+  transition: all 200ms linear;
+}
+
+.goBackBtn:hover,
+.goBackBtn:active{
+  background-color: #fff;
+  color: #780206;
+}

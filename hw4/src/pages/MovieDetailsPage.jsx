@@ -4,4 +4,4 @@ export default function MovieDetailsPage() {
     return (
         <MovieDetails />
     )
-}
+};

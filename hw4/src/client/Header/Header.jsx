@@ -1,18 +1,19 @@
 import { NavLink } from "react-router-dom";
+import s from './HeaderStyles.module.css';
 
 export default function Header() {
 
     return (
-        <header>
+        <header className={s.wrapper}>
             <nav>
-                <ul>
-                    <li>
-                        <NavLink to="/" className="link" activeClassName="active-link">
+                <ul className={s.headerList}>
+                    <li className={s.headerItem}>
+                        <NavLink className={s.navLink} exact to="/" activeClassName={s.activeNavLink} >
                             home
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/movies" className="link" activeClassName="active-link">
+                    <li className={s.headerItem}>
+                        <NavLink className={s.navLink} activeClassName={s.activeNavLink} to="/movies" >
                             movies
                         </NavLink>
                     </li>
